@@ -1,0 +1,180 @@
+/*
+ * Tokens de diseño — sis_solicitud-next
+ *
+ * Dos capas:
+ *  1. Primitivas (--brand-*, --teal-*, --amber-*, --coral-*, --slate-*): la paleta cruda.
+ *  2. Semánticas (--canvas, --surface, --content...): el significado. Los componentes usan
+ *     SOLO estas. Cambiar la identidad visual = tocar este archivo.
+ *
+ * Paleta base tomada de la plantilla Hyper del legacy (fidelidad visual):
+ *   primary #405189 · acento #0ab39c · warning #f7b84b · danger #f06548
+ * Los tonos crudos de acento NO sirven como texto sobre blanco (2,6:1 y 3,1:1), así que
+ * los pares de texto usan las variantes 700/800. Pares verificados (WCAG AA):
+ *
+ *   content        / surface  17,9:1   AAA
+ *   content-muted  / surface   7,6:1   AAA
+ *   content-subtle / surface   4,8:1   AA
+ *   primary        / surface   7,5:1   AAA
+ *   primary-content/ primary   7,5:1   AAA
+ *   success        / surface   5,7:1   AA
+ *   warning        / surface   6,8:1   AA
+ *   danger         / surface   5,8:1   AA
+ *   white          / danger-solid 5,8:1 AA
+ */
+
+:root {
+  /* ── Primitivas: marca (índigo Hyper) ───────────────────────────────── */
+  --brand-50: #f2f4f9;
+  --brand-100: #e4e8f3;
+  --brand-200: #c9d2e7;
+  --brand-300: #a3b1d6;
+  --brand-400: #7a8dc2;
+  --brand-500: #5a6fae;
+  --brand-600: #405189;
+  --brand-700: #364573;
+  --brand-800: #2d385d;
+  --brand-900: #262f4d;
+  --brand-950: #171c2e;
+
+  /* ── Primitivas: acento (teal Hyper) ────────────────────────────────── */
+  --teal-50: #effcf9;
+  --teal-100: #d5f7f0;
+  --teal-200: #abeee2;
+  --teal-300: #74e0d0;
+  --teal-400: #3ccbb8;
+  --teal-500: #16b3a0;
+  --teal-600: #0a9184;
+  --teal-700: #0b7469;
+  --teal-800: #0d5d55;
+  --teal-900: #0f4d47;
+  --teal-950: #042f2a;
+
+  /* ── Primitivas: aviso (ámbar Hyper) ────────────────────────────────── */
+  --amber-50: #fff9ec;
+  --amber-100: #fef0d3;
+  --amber-200: #fde0a6;
+  --amber-300: #fbcb6e;
+  --amber-400: #f9c05a;
+  --amber-500: #f7b84b;
+  --amber-600: #d99a2b;
+  --amber-700: #a9741f;
+  --amber-800: #7a531a;
+  --amber-900: #5c3f17;
+  --amber-950: #35240d;
+
+  /* ── Primitivas: peligro (coral Hyper) ──────────────────────────────── */
+  --coral-50: #fef3f0;
+  --coral-100: #fde4de;
+  --coral-200: #fac7bb;
+  --coral-300: #f6a08c;
+  --coral-400: #f37a60;
+  --coral-500: #f06548;
+  --coral-600: #b9381d;
+  --coral-700: #9a2c15;
+  --coral-800: #7c2512;
+  --coral-900: #651f10;
+  --coral-950: #370d06;
+
+  /* ── Primitivas: neutros (slate) ────────────────────────────────────── */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* ── Semánticas: superficies y texto ────────────────────────────────── */
+  --canvas: var(--slate-50);
+  --surface: #ffffff;
+  --surface-muted: var(--slate-100);
+  --content: var(--slate-900);
+  --content-muted: var(--slate-600);
+  --content-subtle: var(--slate-500);
+  --line: var(--slate-200);
+  --line-strong: var(--slate-300);
+
+  /* ── Semánticas: marca y estados ────────────────────────────────────── */
+  --primary: var(--brand-600);
+  --primary-hover: var(--brand-700);
+  --primary-active: var(--brand-800);
+  --primary-content: #ffffff;
+
+  --accent: var(--teal-500);
+  --accent-content: var(--teal-950);
+
+  --success: var(--teal-700);
+  --success-surface: var(--teal-50);
+
+  --warning: var(--amber-800);
+  --warning-surface: var(--amber-50);
+
+  --danger: var(--coral-600);
+  --danger-surface: var(--coral-50);
+  --danger-solid: var(--coral-600);
+  --danger-solid-hover: var(--coral-700);
+
+  --focus: var(--brand-600);
+}
+
+/* Expone las primitivas y semánticas como utilidades de Tailwind v4. */
+@theme inline {
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-content: var(--content);
+  --color-content-muted: var(--content-muted);
+  --color-content-subtle: var(--content-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-content: var(--primary-content);
+
+  --color-accent: var(--accent);
+  --color-accent-content: var(--accent-content);
+
+  --color-success: var(--success);
+  --color-success-surface: var(--success-surface);
+  --color-warning: var(--warning);
+  --color-warning-surface: var(--warning-surface);
+  --color-danger: var(--danger);
+  --color-danger-surface: var(--danger-surface);
+  --color-danger-solid: var(--danger-solid);
+  --color-danger-solid-hover: var(--danger-solid-hover);
+
+  --color-focus: var(--focus);
+
+  --font-sans:
+    var(--font-poppins, "Poppins"), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Radios y sombras: mismos nombres que Tailwind para sobrescribir sus valores. */
+@theme {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.06);
+  --shadow-md: 0 4px 12px -2px rgb(15 23 42 / 0.1);
+  --shadow-lg: 0 12px 32px -8px rgb(15 23 42 / 0.18);
+}

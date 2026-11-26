@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+build
+storybook-static
+coverage
+package-lock.json
+tmp
+assets
+AGENTS.md
+README.md
+.env*
+next-env.d.ts
+coverage
