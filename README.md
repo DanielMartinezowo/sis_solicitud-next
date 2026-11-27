@@ -40,7 +40,7 @@ La app queda en <http://localhost:3000>.
 | `npm run dev` | Servidor de desarrollo |
 | `npm run build` / `start` | Build de producción y arranque |
 | `npm run lint` | ESLint (incluye reglas del contrato: sin `any`, sin `dangerouslySetInnerHTML`) |
-| `npm run typecheck` | `tsc --noEmit` |
+| `npm run typecheck` | Genera los tipos de rutas de Next (`next typegen`) y valida con `tsc --noEmit` |
 | `npm run test` | Vitest + Testing Library |
 | `npm run test:watch` | Vitest en modo watch |
 | `npm run test:e2e` | Playwright (se instala en la Fase 6) |
